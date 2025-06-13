@@ -1,0 +1,66 @@
+[package]
+name = "memechain"
+version = "0.1.0"
+edition = "2021"
+authors = ["MemeChain Team"]
+description = "High-performance Layer 1 blockchain for NFTs and meme tokens"
+
+[dependencies]
+# Core blockchain dependencies
+cosmrs = "0.8"
+tendermint = "0.32"
+tendermint-rpc = "0.32"
+cosmos-sdk-proto = "0.3"
+prost = "0.12"
+tonic = "0.10"
+
+# Serialization
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+toml = "0.8"
+
+# Database
+rocksdb = "0.21"
+sled = "0.34"
+
+# Cryptography
+ed25519-dalek = "2.0"
+sha2 = "0.10"
+hex = "0.4"
+rand = "0.8"
+
+# Utilities
+thiserror = "1.0"
+anyhow = "1.0"
+tokio = { version = "1.0", features = ["full"] }
+tracing = "0.1"
+tracing-subscriber = "0.3"
+clap = { version = "4.0", features = ["derive"] }
+chrono = { version = "0.4", features = ["serde"] }
+uuid = { version = "1.0", features = ["v4", "serde"] }
+async-trait = "0.1"
+
+# Web framework for API
+axum = "0.7"
+tower = "0.4"
+tower-http = { version = "0.5", features = ["cors"] }
+
+# Development
+cfg-if = "1.0"
+
+[dev-dependencies]
+tokio-test = "0.4"
+tempfile = "3.8"
+
+[[bin]]
+name = "memechain"
+path = "src/main.rs"
+
+[lib]
+name = "memechain"
+path = "src/lib.rs"
+
+[features]
+default = []
+testnet = []
+mainnet = [] 
